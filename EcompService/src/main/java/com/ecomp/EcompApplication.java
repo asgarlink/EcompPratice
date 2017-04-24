@@ -15,5 +15,6 @@ import org.springframework.context.annotation.Configuration;
 public class EcompApplication {
     public static void main(String args[]){
         SpringApplication.run(EcompApplication.class,args);
+	Sysout.out.println("This is a test");
     }
 }
