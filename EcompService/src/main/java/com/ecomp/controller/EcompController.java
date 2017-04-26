@@ -22,12 +22,13 @@ public class EcompController {
 
     @RequestMapping(value = "/details/{ecompId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public EcompModel getEcompDetails(@PathVariable("ecompId") String ecompId) {
-
-     return new EcompModel("Atcive","Amaresh","test","test");
+    	return ecompService.getEcomp(Long.valueOf(ecompId));
+     
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void createEcompDetails(@RequestBody EcompRequest ecompRequest) {
-
+    	EcompModel ecompModel = new EcompModel(ecompRequest.getName(),ecompRequest.getStatus(),ecompRequest.getAccount_open_Date(),ecompRequest.getAccount_balance());
+    	ecompService.createEcomp(ecompModel);
     }
 }
